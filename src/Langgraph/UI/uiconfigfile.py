@@ -8,7 +8,8 @@ class Config:
 
         st = self.config.read(config_file)
         print("CONFIG PATH:", config_file)
-        print("CONFIG READ:", st)
+        print("CONFIG FILE EXISTS:", os.path.exists(config_file))
+        print("CONFIG DEFAULTS:", dict(self.config.defaults()))
 
     def get_llm_model(self):
         return self.config['DEFAULT']['LLM_OPTIONS'].split(', ')
