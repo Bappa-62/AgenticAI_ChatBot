@@ -3,8 +3,13 @@ import os
 class Config:
     def __init__(self):
         self.config = ConfigParser()
-        config_file = os.path.join(os.path.dirname(__file__),'uiconfigfile.ini')
+        config_file = os.path.join(os.path.dirname(__file__),'uiconfigfile.ini') 
         self.config.read(config_file)
+
+        st = self.config.read(config_file)
+        print("CONFIG PATH:", config_file)
+        print("CONFIG READ:", st)
+
     def get_llm_model(self):
         return self.config['DEFAULT']['LLM_OPTIONS'].split(', ')
 
