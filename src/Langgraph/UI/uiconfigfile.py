@@ -1,9 +1,10 @@
 from configparser import ConfigParser
+import os
 class Config:
-    def __init__(self, config_file='/Users/bappa_62/Documents/Agentic AI Projects/src/Langgraph/UI/uiconfigfile.ini'):
+    def __init__(self):
         self.config = ConfigParser()
+        config_file = os.path.join(os.path.dirname(__file__),'uiconfigfile.ini')
         self.config.read(config_file)
-
     def get_llm_model(self):
         return self.config['DEFAULT']['LLM_OPTIONS'].split(', ')
 
@@ -19,6 +20,3 @@ class Config:
     def get_openai_models(self):
         return self.config['DEFAULT']['OPENAI_MODELS'].split(', ')
     
-
-
-
