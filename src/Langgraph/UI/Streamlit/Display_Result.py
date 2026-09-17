@@ -49,7 +49,7 @@ class DisplayResult:
                                       'keyword':self.keyword
                                       })
                 try:
-                    path = f"./Summarized_News/{self.frequency}_summary.md"
+                    path = f"./Summarized_News/{self.frequency.lower()}_summary.md"
                     with open(path,'r') as f:
                         markdown_content = f.read()
                         st.markdown(markdown_content,unsafe_allow_html=True) 
