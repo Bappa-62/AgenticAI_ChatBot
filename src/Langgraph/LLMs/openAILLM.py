@@ -13,8 +13,9 @@ class OpenAI_LLM:
             selected_openai_model = self.user_controls_input['selected_openai_model'] 
             if openai_api_key == '' and os.environ.get("OPENAI_API_KEY") == '':
                 print("Please Enter the OPENAI API KEY")
-            llm = ChatOpenAI(openai_api_key=openai_api_key, model=selected_openai_model)
+            llm = ChatOpenAI(openai_api_key=openai_api_key, model=selected_openai_model, temperature=0.3, max_tokens=1000)
         except Exception as e:
             raise ValueError(f"Error in OpenAI_LLM: {str(e)}")
         return llm
                 
+
